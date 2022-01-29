@@ -3,14 +3,14 @@ import { HttpClient, HttpResponse, HttpHeaders  } from '@angular/common/http';
 
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
+//clase que contien la URl de la API
 import {GLOBAL} from './global';
 
 
 
 @Injectable()
 export class ClientService{
-    public identity:any;
-    public token:any;
+   
     public url: String;
 
     constructor (private _http: HttpClient){
@@ -27,6 +27,7 @@ export class ClientService{
      return this._http.post(this.url+Ruta, params, {headers: headers}).pipe(map(res => res));
 
     }
+    //metodo para registrar Venta
     registerVenta(user_to_register:any):Observable<any>{
       let json =JSON.stringify(user_to_register);
       let params = json;
@@ -35,7 +36,7 @@ export class ClientService{
      return this._http.post(this.url+'Factura', params, {headers: headers}).pipe(map(res => res));
 
     }
-
+     //metodo para consultar un cliente 
     GetCliente(Identifi:string,Ruta:string):Observable<any>{
       
       let params = Identifi;
@@ -44,6 +45,8 @@ export class ClientService{
      return this._http.get(this.url+Ruta+params ).pipe(map(res => res));
 
     }
+
+    //metodo para consultar  todas las ventas
     GetVentas():Observable<any>{
       
       
@@ -54,36 +57,7 @@ export class ClientService{
     }
   
    
-     //metodos para cargar las variables de sesion desde el local stograge
- getIdentity()
- {
-  let identity = localStorage.getItem('identity');
-  if(identity != undefined)
-  {
-    this.identity = identity;
-   
-  }else{
-    this.identity=null;
-  }
-  return this.identity;
- }
 
- getToken()
- {
-  let token = localStorage.getItem('token');
-  if(token != undefined)
-  {
-    this.token = token;
-    
-  }else{
-    this.token=null;
-  }
-  return this.token;
- }
- 
-prueba(){
-  console.log('oelopa');
-}
 
   
 

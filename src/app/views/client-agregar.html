@@ -18,7 +18,7 @@
       </p>
       <p>
         <label >Nombre:</label>
-        <input type="text" #nombre ="ngModel" name="nombre " [(ngModel)]="objcliente.Nombre" class = "form-control" required/>
+        <input type="text" #nombre ="ngModel" name="nombre " ng-minlength="4"  [(ngModel)]="objcliente.Nombre" class = "form-control" required/>
         <span *ngIf ="!nombre.valid && nombre.touched">
           el apellido es obligatorio
         </span>
