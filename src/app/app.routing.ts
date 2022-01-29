@@ -9,7 +9,7 @@ import { ProductoAgregarComponent } from './components/producto-agregar.componen
 import { FacturaAgregarComponent } from './components/factura-agregar.component';
 import { VentasList } from './components/factura-lista.component';
 
-// se definen las turas correspondientes a cada componente 
+// se definen las rutas correspondientes a cada componente 
 const appRoutes: Routes = [
     {path:'', component: VentasList },
     {path:'Cliente', component: ClientAgregarComponent},

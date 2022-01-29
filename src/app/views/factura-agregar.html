@@ -59,23 +59,17 @@
         <div class="col-lg-3">
             <label >Descripcion</label>
             <input type="text"  #descripcion="ngModel" name="descripcion" [(ngModel)] ="producto.Descripcion" class="form-control"required>
-            <span *ngIf ="!descripcion.valid && descripcion.touched">
-                La descripcion es obligatoria
-            </span>
+          
         </div>
         <div class="col-lg-2">
             <label >Stock</label>
             <input type="text"  #stock="ngModel" name="stock" [(ngModel)] ="producto.Stock" class="form-control" required >
-            <span *ngIf ="!stock.valid && stock.touched">
-                La descripcion es obligatoria
-            </span>
+           
         </div>
         <div class="col-lg-2">
             <label >ValorUnitario</label>
             <input type="text"  #valorunitario="ngModel" name="valorunitario" [(ngModel)] ="producto.ValorUnitario" class="form-control" required>
-            <span *ngIf ="!valorunitario.valid && valorunitario.touched">
-                La descripcion es obligatoria
-            </span>
+           
         </div>
         <div class="col-lg-2">
             <label >Cantidad</label>

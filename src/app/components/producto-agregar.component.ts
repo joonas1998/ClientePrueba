@@ -36,7 +36,7 @@ import {FacturaProducto} from '../models/facturaproducto';
    }
   
   onSubmitRegister(){
-    //se valida que el stok y el valor unitario sean mayores a cero 
+    //se valida que el stok y el valor unitario sean mayores que cero 
     if(this.producto_register.ValorUnitario > 0 && this.producto_register.Stock >0)
     {
             this._clienteservice.Register(this.producto_register,'Producto').subscribe(

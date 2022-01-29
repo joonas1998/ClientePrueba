@@ -133,7 +133,7 @@ registrarVenta()
 
 addlistas()
 {
-  //se define una estructura de los objetos que se guardarán e la lista 
+  //se define una estructura de los objetos que se guardarán en la lista 
   //lista que se carga en la tabla de ventas 
   let listaP = {Codigo: this.producto.Codigo, Descripcion: this.producto.Descripcion, Cantidad:this.cantidad, Subtotal:this.subtotal};
   // lista que se envia por post como concepto de la venta 
@@ -146,7 +146,7 @@ addlistas()
   //se termina de cargar el objeto de tipo Factura 
   this.Factura_register.IdentificacionCliente = this.cliente.Identificacion;
   console.log(listaPost);
-  //se instancian los metodos carcularTotal y calcularSubtotal para refrscar la tabla de conceptos y los calculos
+  //se instancian los metodos carcularTotal y calcularSubtotal para actualizar la tabla de conceptos y los cálculos
   this.calcularTotal();
   this.calcularSubtotal();
   console.log(this.Factura_register);
