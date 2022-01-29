@@ -1,0 +1,26 @@
+<div class = "col-lg-12">
+    <h1>Ventas realizadas</h1>
+  
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <td>codigo Factura</td>
+              <td>Idenficació del cliente</td>
+              <td>TotalFactura</td>
+              <td>Opciones</td>   
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let objventa of objsonResponse">
+              <td>{{objventa.NumeroFactura}}</td>
+              <td>{{objventa.IdentificacionCliente}}</td>
+              <td>{{objventa.TotalFactura}}</td>
+              <td>
+                <input   value="Ver factura"  class ="btn btn-primary"/>
+            </td>
+              
+          </tr>
+       
+      </tbody>
+  </table>
+  </div>

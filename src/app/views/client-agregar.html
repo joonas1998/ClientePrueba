@@ -1,0 +1,49 @@
+<div class = "col-lg-6">
+    <h1>registrate</h1>
+    <div *ngIf ="alertRegister">
+      <div class="alert alert-info" role="alert">
+          
+             {{errorMessage}}{{alertRegister}}
+          
+        
+      </div>
+    </div>
+    <form #registerForm ="ngForm" (ngSubmit)="onSubmitRegister()" class = "col-md-10" >
+      <p>
+        <label >Identificacion:</label>
+        <input type="text" #identificacion = "ngModel" name="identificacion" [(ngModel)]="objcliente.Identificacion" class = "form-control" required/>
+        <span *ngIf ="!identificacion.valid && identificacion.touched">
+          el nombre es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Nombre:</label>
+        <input type="text" #nombre ="ngModel" name="nombre " [(ngModel)]="objcliente.Nombre" class = "form-control" required/>
+        <span *ngIf ="!nombre.valid && nombre.touched">
+          el apellido es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Apellido:</label>
+        <input type="text" #apellido = "ngModel" name="apellido" [(ngModel)]="objcliente.Apellido" class = "form-control" required/>
+        <span *ngIf ="!apellido.valid && apellido.touched">
+          el email es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Direcion:</label>
+        <input type="text" #direccion = "ngModel" name="direccion" [(ngModel)]="objcliente.Direccion" class = "form-control" required/>
+        <span *ngIf ="!direccion.valid && direccion.touched">
+          la contraseña es obligatoria
+        </span>
+      </p>
+      <p>
+        <label >Tipo identificacion:</label>
+        <input type="text" #tipoidentificacion = "ngModel" name="tipoidentificacion" [(ngModel)]="objcliente.Tipoidentificacion" class = "form-control" required/>
+        <span *ngIf ="!tipoidentificacion.valid && tipoidentificacion.touched">
+          la contraseña es obligatoria
+        </span>
+      </p>
+      <input type="submit"  value="Registrarse" class ="btn btn-primary"/>
+    </form>
+  </div>

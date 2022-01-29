@@ -1,0 +1,40 @@
+<div class = "col-lg-6">
+    <h1>registrate</h1>
+    <div *ngIf ="alertRegister">
+      <div class="alert alert-info" role="alert">
+             {{errorMessage}}{{alertRegister}}
+      </div>
+    </div>
+    <form #registerForm ="ngForm" (ngSubmit)="onSubmitRegister()" class = "col-md-10" >
+      <p>
+        <label >Codigo:</label>
+        <input type="text" #codigo = "ngModel" name="codigo" [(ngModel)]="producto_register.Codigo" class = "form-control" required/>
+        <span *ngIf ="!codigo.valid && codigo.touched">
+          el nombre es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Descripcion:</label>
+        <input type="text" #descripcion="ngModel" name="descripcion" [(ngModel)]="producto_register.Descripcion" class = "form-control" required/>
+        <span *ngIf ="!descripcion.valid && descripcion.touched">
+          el apellido es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Stock:</label>
+        <input type="text" #stock = "ngModel" name="stock" [(ngModel)]="producto_register.Stock" class = "form-control" required/>
+        <span *ngIf ="!stock.valid && stock.touched">
+          el email es obligatorio
+        </span>
+      </p>
+      <p>
+        <label >Valor unitario:</label>
+        <input type="text" #valorunitario = "ngModel" name="valorunitario" [(ngModel)]="producto_register.ValorUnitario" class = "form-control" required/>
+        <span *ngIf ="!valorunitario.valid && valorunitario.touched">
+          la contraseña es obligatoria
+        </span>
+      </p>
+      
+      <input type="submit"  value="Registrar Producto" class ="btn btn-primary"/>
+    </form>
+  </div>
