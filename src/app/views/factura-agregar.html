@@ -17,29 +17,39 @@
 
             
         </div>
+        <div class="col-lg-7">
+            <div *ngIf ="alertRegister">
+                <div class="alert alert-info" role="alert">
+                    
+                       {{alertRegister}}                                    
+                </div>
+              </div>
+
+            
+        </div>
     
 </div>
 <div class="row">
     <form #clienteForm="ngForm" (ngSubmit)= "getCliente()" >
         <div class="col-lg-2">
             <label >Identificación</label>
-            <input type="text"  #identificacion ="ngModel" name="identificacion" [(ngModel)] ="cliente.Identificacion" class="form-control">
+            <input type="text"  #identificacion ="ngModel"  name="identificacion" [(ngModel)] ="cliente.Identificacion" class="form-control">
         </div>
         <div class="col-lg-2">
             <label >Nombre</label>
-            <input type="text" #nombre= "ngModel" name="nombre" [(ngModel)] ="cliente.Nombre" class="form-control">
+            <input type="text" #nombre= "ngModel" readonly name="nombre" [(ngModel)] ="cliente.Nombre" class="form-control">
         </div>
         <div class="col-lg-2">
             <label >Apellido</label>
-            <input type="text" #apellido = "ngModel" name="apellido" [(ngModel)] ="cliente.Apellido" class="form-control">
+            <input type="text" #apellido = "ngModel"readonly name="apellido" [(ngModel)] ="cliente.Apellido" class="form-control">
         </div>
         <div class="col-lg-2">
             <label >Direccion</label>
-            <input type="text" #direccion = "ngModel" name="direccion" [(ngModel)] ="cliente.Direccion" class="form-control">
+            <input type="text" #direccion = "ngModel" readonly name="direccion" [(ngModel)] ="cliente.Direccion" class="form-control">
         </div>
         <div class="col-lg-2">
             <label >Tipo de I.D</label>
-            <input type="text" #tipoid ="ngModel" name="tipoidentificacion" [(ngModel)] ="cliente.Tipoidentificacion" class="form-control">
+            <input type="text" #tipoid ="ngModel" readonly name="tipoidentificacion" [(ngModel)] ="cliente.Tipoidentificacion" class="form-control">
         </div>
         <div class="col-lg-2">
             
@@ -52,23 +62,21 @@
         <div class="col-lg-2">
             <label >Codigo del producto</label>
             <input type="text"  #codigoproducto="ngModel" name="codigoproducto" [(ngModel)] ="producto.Codigo" class="form-control" required>
-            <span *ngIf ="!codigoproducto.valid && codigoproducto.touched">
-                EL codigo es obligatorio
-            </span>
+           
         </div>
         <div class="col-lg-3">
             <label >Descripcion</label>
-            <input type="text"  #descripcion="ngModel" name="descripcion" [(ngModel)] ="producto.Descripcion" class="form-control"required>
+            <input type="text"  #descripcion="ngModel" readonly name="descripcion" [(ngModel)] ="producto.Descripcion" class="form-control"required>
           
         </div>
         <div class="col-lg-2">
             <label >Stock</label>
-            <input type="text"  #stock="ngModel" name="stock" [(ngModel)] ="producto.Stock" class="form-control" required >
+            <input type="text"  #stock="ngModel" readonly name="stock" [(ngModel)] ="producto.Stock" class="form-control" required >
            
         </div>
         <div class="col-lg-2">
             <label >ValorUnitario</label>
-            <input type="text"  #valorunitario="ngModel" name="valorunitario" [(ngModel)] ="producto.ValorUnitario" class="form-control" required>
+            <input type="text"  #valorunitario="ngModel" readonly name="valorunitario" [(ngModel)] ="producto.ValorUnitario" class="form-control" required>
            
         </div>
         <div class="col-lg-2">
@@ -78,7 +86,7 @@
         </div>
         <div class="col-lg-2">
             <label >Sub total</label>
-            <input type="text"   name="subtotal" [(ngModel)] ="subtotal" class="form-control">
+            <input type="text"   readonly name="subtotal" [(ngModel)] ="subtotal" class="form-control">
         </div>
        
         <div class="col-lg-2">
@@ -106,6 +114,16 @@
         <span class = "btn btn-warning" (click)="registrarVenta()" >
            Generar venta
           </span>
+    </div>
+    <div class="col-lg-2">
+    <div *ngIf ="alertVenta">
+        <div class="alert alert-danger" role="alert">
+            
+               {{alertVenta}}
+            
+          
+        </div>
+      </div>
     </div>
 </div>
 

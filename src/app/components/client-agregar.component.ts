@@ -33,6 +33,7 @@ export class ClientAgregarComponent implements OnInit{
 
  //metodo para registrar  un cliente
  onSubmitRegister(){
+   
    if(this.objcliente.Identificacion.length < 4 || this.objcliente.Nombre.length<2){
     this.alertRegister="La identificación o el nombre son muy cortos";
     this.objcliente= new Cliente('','','','','');

@@ -36,6 +36,10 @@ import {FacturaProducto} from '../models/facturaproducto';
    }
   
   onSubmitRegister(){
+    if(this.producto_register.Descripcion.length <= 1)
+    {
+      this.alertRegister = ""
+    }
     //se valida que el stok y el valor unitario sean mayores que cero 
     if(this.producto_register.ValorUnitario > 0 && this.producto_register.Stock >0)
     {
