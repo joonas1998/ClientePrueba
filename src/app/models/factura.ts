@@ -7,7 +7,6 @@ export class Factura {
         public NumeroFactura  : string,
         public IdentificacionCliente:string,
         public TotalFactura:number,
-        public identificacionClienteNavigation: null,
         public FaacturaProductos : FacturaProducto[]
 
        

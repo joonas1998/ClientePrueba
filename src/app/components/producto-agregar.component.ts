@@ -3,6 +3,7 @@ import { ClientService } from '../services/client.services';
 import {Producto} from '../models/producto';
 import {FacturaProducto} from '../models/facturaproducto';
 
+
 @Component({
     selector: 'producto-agregar',
     templateUrl: '../views/producto-agregar.html',
@@ -44,11 +45,12 @@ import {FacturaProducto} from '../models/facturaproducto';
     if(this.producto_register.ValorUnitario > 0 && this.producto_register.Stock >0)
     {
             this._clienteservice.Register(this.producto_register,'Producto').subscribe(
-              Response=>{
-                console.log(Response);
-              
+              Data=>{
+               
+                let jsonstring = Data;
+                this.producto_register = jsonstring;
                 
-                if(Response.Codigo == null)
+                if(this.producto_register.Codigo == null)
                 {
                   alert('Error al registrar el producto');
                 }

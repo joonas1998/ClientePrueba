@@ -28,10 +28,7 @@ import { Factura } from '../models/factura';
     ){
       this.tiulo = 'guardar producto',
       this.objFacturaList = [];
-      this.objFactura=new Factura('','',0,null,[])
-      
-      
-      
+      this.objFactura=new Factura('','',0,[])
    
     }
   

@@ -39,19 +39,18 @@ export class ClientAgregarComponent implements OnInit{
     this.objcliente= new Cliente('','','','','');
    } else{
     this._clienteservice.Register(this.objcliente,'Cliente').subscribe(
-      Response=>{
-        this.objcliente.Identificacion = Response.Identificacion;
-        this.objcliente.Nombre = Response.Nombre;
-        this.objcliente.Apellido = Response.Apellido;
-        this.objcliente.Direccion= Response.Direccion;
-        
+      Data=>{
+        let jsonstring = Data;
+        this.objcliente = jsonstring;
+        console.log(this.objcliente );
+      
   
         if(this.objcliente.Identificacion == null)
         {
           
           alert('Error al registrar cliente');
         }
-  
+        
         else{
           console.log(this.objcliente);
           this.alertRegister="Cliente registrado exitosamente ";

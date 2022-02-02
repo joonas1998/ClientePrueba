@@ -43,8 +43,8 @@ export class FacturaAgregarComponent implements OnInit{
     private _route :ActivatedRoute
   ){
     this.tiulo = 'guardar cliente',
-    this.Factura_register = new Factura('','',0,null,[]);
-    this.concepto_register = new FacturaProducto('','',1,1,null);
+    this.Factura_register = new Factura('','',0,[]);
+    this.concepto_register = new FacturaProducto('','',1,1);
     this.listaConcepto =[];
     this.cliente = new Cliente('','','','','');
     this.producto = new Producto('','',0,0);
@@ -70,12 +70,9 @@ export class FacturaAgregarComponent implements OnInit{
     this.alertRegister ="La identificación del cliente es obligatoria"
    }else{
     this._clienteservice.GetCliente(this.cliente.Identificacion,'Cliente/').subscribe(
-      Response => {
-        this.cliente.Identificacion=Response.Identificacion;
-        this.cliente.Nombre=Response.Nombre;
-        this.cliente.Apellido=Response.Apellido;
-        this.cliente.Direccion=Response.Direccion;
-        this.cliente.Tipoidentificacion=Response.Tipoidentificacion;
+      Data => {
+        let jsonstring = Data;
+        this.cliente = jsonstring;
       },
       error => {
        var errorMessage=(<any>error);
@@ -98,14 +95,13 @@ export class FacturaAgregarComponent implements OnInit{
      this.alertRegister ="El Código del producto es obligatorio"
    }else{
     this._clienteservice.GetCliente(this.producto.Codigo,'Producto/').subscribe(
-      Response => {
+      Data => {
+        let jsonstring = Data;
+        this.producto = jsonstring;
+
+      
         
-        this.producto.Codigo=Response.Codigo;
-        this.producto.Descripcion=Response.Descripcion;
-        this.producto.Stock=Response.Stock;
-        this.producto.ValorUnitario=Response.ValorUnitario;
-        
-       console.log(Response);
+       console.log(this.producto);
       },
       error => {
        var errorMessage=(<any>error);
@@ -191,7 +187,7 @@ addlistas()
         //lista que se carga en la tabla de ventas 
         let listaP = {Codigo: this.producto.Codigo, Descripcion: this.producto.Descripcion, Cantidad:this.cantidad, Subtotal:this.subtotal};
         // lista que se envia por post como concepto de la venta 
-        let listaPost = {CodigoProducto: this.producto.Codigo,NumeroFactura :this.Factura_register.NumeroFactura, CantidadVendida:this.cantidad, Total: this.Factura_register.TotalFactura, codigoProductoNavigation :this.Factura_register.identificacionClienteNavigation};
+        let listaPost = {CodigoProducto: this.producto.Codigo,NumeroFactura :this.Factura_register.NumeroFactura, CantidadVendida:this.cantidad, Total: this.Factura_register.TotalFactura};
         //se cargan las listas
         this.listaProducto.push(listaP);
         this.listaConcepto.push(listaPost);
@@ -244,7 +240,8 @@ generarcodigo(longitud:any)
   let letras = "abcdefghijklmnopqrstuvwxyz";
   let  cadena = "";
   let  todo = numeros+letras;
-
+  //metodo para generar un codigo a partir de un strig
+  // por cada recorrido selecciona un caracter y lo cancatena en una cadena de N longitud
   for(let i =0; i <longitud; i++)
   {
     let Naleatorio = Math.floor(Math.random() * todo.length);

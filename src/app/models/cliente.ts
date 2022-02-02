@@ -6,7 +6,5 @@ export class Cliente{
         public Apellido :string,
         public Direccion:string,
         public Tipoidentificacion :string
-             
-    
     ){}
 }
